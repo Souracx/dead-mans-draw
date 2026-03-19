@@ -2,11 +2,13 @@
 #include <vector>
 #include <string>
 
+//Represents suit/type of a card 
 enum CardType { Cannon, Chest , Key, Anchor, Sword, Hook, Oracle, Map, Mermaid, Kraken };
 
 class Player; 
 class Game; 
 
+//Abstract Base Class representing a card in the game - cannot be instantiated directly 
 class Card {
     protected:
         CardType _type;
