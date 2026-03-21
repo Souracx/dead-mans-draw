@@ -181,6 +181,7 @@
     <ClCompile Include="DeadMansDraw.cpp" />
     <ClCompile Include="HookCard.cpp" />
     <ClCompile Include="KeyCard.cpp" />
+    <ClCompile Include="MapCard.cpp" />
     <ClCompile Include="MermaidCard.cpp" />
     <ClCompile Include="OracleCard.cpp" />
     <ClCompile Include="SwordCard.cpp" />
@@ -192,6 +193,7 @@
     <ClInclude Include="game_title.h" />
     <ClInclude Include="HookCard.h" />
     <ClInclude Include="KeyCard.h" />
+    <ClInclude Include="MapCard.h" />
     <ClInclude Include="MermaidCard.h" />
     <ClInclude Include="OracleCard.h" />
     <ClInclude Include="SwordCard.h" />
