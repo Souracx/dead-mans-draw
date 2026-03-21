@@ -2,7 +2,7 @@
 #include "Card.h"
 
 class CannonCard : public Card {
-
+public: 
     CannonCard(int value) : Card(Cannon, value) { }
 
     virtual std::string str() const override; 
