@@ -6,3 +6,4 @@ std::string MermaidCard::str() const {
 }
 
 void MermaidCard::play(Game &game, Player& player) {}
+
