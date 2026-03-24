@@ -185,13 +185,13 @@
     <ClCompile Include="MapCard.cpp" />
     <ClCompile Include="MermaidCard.cpp" />
     <ClCompile Include="OracleCard.cpp" />
-    <ClCompile Include="Player.cpp" />
     <ClCompile Include="SwordCard.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CannonCard.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="ChestCard.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="game_title.h" />
     <ClInclude Include="HookCard.h" />
     <ClInclude Include="KeyCard.h" />
