@@ -47,6 +47,50 @@ int Player::score() const {
     return total; 
 }
 
+//Print player's play area
+void Player::printPlayArea() const {
+    std::cout << _name << "'s Play Area:" << "\n"; 
+    for (Card* card : _playArea) {
+        std::cout << "  " << card->str() << "\n"; 
+    }
+}
+
+//Print Player's Bank with Score
+void Player::printBank() const {
+    std::cout << _name << "'s Bank:" << "\n"; 
+    for (Card* card : _bank) {
+        std::cout << "  " << card->str() << "\n"; 
+    }
+    std::cout << "| Score: " << score() << "\n";
+}
+
+//Adds card to player's play area, returns true if player bust 
+bool Player::playCard(Card* card, Game& game) {
+    //add card to play area
+    _playArea.push_back(card); 
+    //check if player is bust
+    if (isBust()) {
+        return true; 
+    }
+    //play cards ability
+    card->play(game, *this); 
+    //not bust
+    return false; 
+}
+
+void Player::bankCards(Game& game) {
+    //call willAddToBank on each card before banking 
+    for (Card* card : _playArea) {
+        card->willAddToBank(game, *this); 
+    }
+    //move all cards from play area to bank 
+    for (Card* card : _playArea) {
+        _bank.push_back(card); 
+    }
+    //clear the playArea
+    _playArea.clear(); 
+}
+
 std::string Player::getName() const {
     return _name; 
 }
