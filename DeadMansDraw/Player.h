@@ -16,8 +16,9 @@ public:
 
     //Adds card to play area, returns true if bust 
     bool playCard(Card* card, Game& game); 
-
     void bankCards(Game& game); //moves play area to bank 
+    void discardPlayArea(Game& game); //moves play area to discard (on bust) 
+
     int score() const; //return total score of bank 
     bool isBust() const; //return true if play area has duplicate suit 
 

@@ -91,14 +91,26 @@ void Player::bankCards(Game& game) {
     _playArea.clear(); 
 }
 
+//Discards all card in play area to game's discard pile 
+//called when player busts
+void Player::discardPlayArea(Game& game) {
+    for (Card* card : _playArea) {
+        game.getDiscard().push_back(card); 
+    }
+    _playArea.clear(); 
+}
+
+//return player's name
 std::string Player::getName() const {
     return _name; 
 }
 
+//returns a reference to player's bank
 CardCollection& Player::getBank() {
     return _bank; 
 }
 
+//returns a reference to player's play area 
 CardCollection& Player::getPlayArea() {
     return _playArea; 
 }
