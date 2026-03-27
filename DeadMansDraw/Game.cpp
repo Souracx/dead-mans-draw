@@ -59,3 +59,42 @@ void Game::shuffleDeck() {
     std::copy(shuffled.begin(), shuffled.end(), _deck.begin());
 }
 
+//Draws and remove the top card from the deck 
+Card* Game::drawCard() {
+    if (_deck.empty()) return nullptr; 
+    Card* card = _deck.back(); 
+    _deck.pop_back(); 
+    return card; 
+}
+
+//Draws and remove from the discard pile
+Card* Game::drawFromDiscard() {
+    if (_discard.empty()) return nullptr; 
+    Card* card = _discard.back(); 
+    _discard.pop_back(); 
+    return card; 
+}
+
+//Returns a reference to the current player
+Player& Game::getCurrentPlayer() {
+    return *_players[_currentPlayer]; 
+}
+
+//Returns a reference to other Player 
+Player& Game::getOtherPlayer(Player& player) {
+    if (&player == _players[0]) {
+        return *_players[1]; 
+    }
+    return *_players[0]; 
+}
+
+//Returns a reference to the deck
+CardCollection& Game::getDeck() {
+    return _deck; 
+}
+
+//Returns a reference to the discard pile 
+CardCollection& Game::getDiscard() {
+    return _discard; 
+}
+
