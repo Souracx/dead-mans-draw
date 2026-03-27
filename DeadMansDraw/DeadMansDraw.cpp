@@ -5,9 +5,8 @@
 
 int main()
 {
-    //srand(static_cast<unsigned int>(time(nullptr))); 
-    //Game game; 
-    //game.startGame(); 
+    Game game; 
+    game.startGame(); 
     return 0; 
 }
 

@@ -24,6 +24,7 @@ public:
     void printFinalScores(); //print final scores 
 
     Card* drawCard(); //Draw top card from deck 
+    Card* drawFromDiscard(); //Draws top card from discard
 
     Player& getCurrentPlayer(); //return current player 
     Player& getOtherPlayer(Player& player); //return other player 

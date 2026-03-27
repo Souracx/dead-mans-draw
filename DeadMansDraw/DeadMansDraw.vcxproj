@@ -179,6 +179,7 @@
     <ClCompile Include="CannonCard.cpp" />
     <ClCompile Include="ChestCard.cpp" />
     <ClCompile Include="DeadMansDraw.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="HookCard.cpp" />
     <ClCompile Include="KeyCard.cpp" />
     <ClCompile Include="KrakenCard.cpp" />
