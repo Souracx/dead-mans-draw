@@ -13,6 +13,7 @@
 #include <algorithm>
 #include <random>
 
+static const int MAX_TURNS = 20;
 
 // Constructor
 Game::Game() : _turn(1), _round(1), _currentPlayer(0), _players{ nullptr, nullptr } {
@@ -98,3 +99,69 @@ CardCollection& Game::getDiscard() {
     return _discard; 
 }
 
+//Initialize and run the game loop until max turns or empty deck
+void Game::startGame() {
+    std::cout << GAME_TITLE << "\n"; 
+    std::cout << "Starting Dead Man's Draw++!\n"; 
+    //continue until max turn or deck is empty
+    while (_turn <= MAX_TURNS && !_deck.empty()) {
+        //calculate current round
+        _round = (_turn + 1) / 2; 
+        std::cout << "--- Round " << _round << ", Turn " << _turn << "---\n"; 
+        playTurn(); 
+        _turn++; 
+    }
+   
+}
+
+// Controls a single player's turn
+void Game::playTurn() {
+    Player& player = getCurrentPlayer();
+    std::cout << player.getName() << "'s turn.\n";
+    player.printBank();
+
+    bool turnOver = false;
+
+    while (!turnOver) {
+        // check if deck is empty mid-turn
+        if (_deck.empty()) {
+            std::cout << "Deck is empty!\n";
+            player.bankCards(*this);
+            player.printBank();
+            turnOver = true;
+            break;
+        }
+
+        // draw a card from the deck
+        Card* card = drawCard();
+        std::cout << player.getName() << " draws a " << card->str() << "\n";
+
+        // add card to play area, check if bust
+        bool bust = player.playCard(card, *this);
+
+        if (bust) {
+            // player busts, discard all cards in play area
+            std::cout << "BUST! " << player.getName() << " loses all cards in play area.\n";
+            player.discardPlayArea(*this);
+            turnOver = true;
+        }
+        else {
+            player.printPlayArea();
+
+            // ask player if they want to draw again
+            std::string input;
+            std::cout << "Draw again? (y/n): ";
+            std::cin >> input;
+
+            if (input != "y") {
+                // player banks their cards
+                player.bankCards(*this);
+                player.printBank();
+                turnOver = true;
+            }
+        }
+    }
+
+    // switch to other player
+    _currentPlayer = 1 - _currentPlayer;
+}
