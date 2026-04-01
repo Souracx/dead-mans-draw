@@ -165,3 +165,27 @@ void Game::playTurn() {
     // switch to other player
     _currentPlayer = 1 - _currentPlayer;
 }
+
+// Prints final scores and declares winner
+void Game::printFinalScores() {
+    std::cout << "--- Game Over ---\n";
+    // print each player's bank
+    for (int i = 0; i < 2; i++) {
+        std::cout << _players[i]->getName() << "'s Bank:\n";
+        _players[i]->printBank();
+    }
+    // determine winner
+    int score0 = _players[0]->score();
+    int score1 = _players[1]->score();
+    if (score0 > score1)
+        std::cout << _players[0]->getName() << " wins!\n";
+    else if (score1 > score0)
+        std::cout << _players[1]->getName() << " wins!\n";
+    else
+        std::cout << "It's a tie!\n";
+}
+
+// Ends the game
+void Game::endGame() {
+    printFinalScores();
+}
