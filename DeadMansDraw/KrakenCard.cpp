@@ -12,10 +12,12 @@ void KrakenCard::play(Game& game, Player& player) {
     std::cout << "Draw 3 cards from the deck and play each: \n"; 
 
     for (int i = 0; i < 3; i++) {
+        //check if deck is empty 
         if (game.getDeck().empty()) {
             std::cout << "Deck is empty - Kraken stops.\n"; 
             break; 
         }
+        //draw and play card
         Card* card = game.drawCard(); 
         std::cout << player.getName() << " draws a " << card->str() << "\n"; 
 
