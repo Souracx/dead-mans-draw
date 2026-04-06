@@ -34,7 +34,7 @@ void SwordCard::play(Game& game, Player& player) {
         }
     }
     //display choice to player 
-    std::cout << " Steal the top card of any suit from" << otherPlayer.getName() << "'s Bank into your play area.\n"; 
+    std::cout << " Steal the top card of any suit from " << otherPlayer.getName() << "'s Bank into your play area.\n"; 
     for (int i = 0; i < order.size(); i++) {
         std::cout << " (" << (i + 1) << ") " << highest[order[i]]->str() << "\n"; 
     }

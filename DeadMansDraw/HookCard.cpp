@@ -53,7 +53,7 @@ void HookCard::play(Game& game, Player& player) {
     //play the hooked card into play area
     bool bust = player.playCard(target, game); 
     if (bust) {
-        std::cout << "BUST" << player.getName() << " loses all cards in play area.\n"; 
+        std::cout << "BUST " << player.getName() << " loses all cards in play area.\n"; 
         player.discardPlayArea(game); 
     }
 }
