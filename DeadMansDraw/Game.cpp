@@ -139,6 +139,12 @@ void Game::playTurn() {
         // add card to play area, check if bust
         bool bust = player.playCard(card, *this);
 
+        //check if bust happened inside a card ability
+        if (!bust && player.getPlayArea().empty()) {
+            turnOver = true; 
+            break; 
+        }
+
         if (bust) {
             // player busts, discard all cards in play area
             std::cout << "BUST! " << player.getName() << " loses all cards in play area.\n";
