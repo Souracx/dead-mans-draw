@@ -49,5 +49,5 @@ void CannonCard::play(Game &game , Player& player)  {
     std::cout << player.getName() << " discards " << target->str() << " from " << otherPlayer.getName() << "'s Bank.\n"; 
     //remove from the opponent bank into discard pile
     bank.erase(std::remove(bank.begin(), bank.end(), target), bank.end()); 
-    game.getDiscard().push_back(target); //add 
+    game.getDiscard().push_back(target); //add                                                      
 }
