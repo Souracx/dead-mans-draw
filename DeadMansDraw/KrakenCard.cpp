@@ -9,7 +9,7 @@ std::string KrakenCard::str() const {
 
 //Ability - must draw 3 cards consecutively 
 void KrakenCard::play(Game& game, Player& player) {
-    std::cout << "Draw 3 cards from the deck and play each: \n"; 
+    std::cout << " Draw 3 cards from the deck and play each: \n"; 
 
     for (int i = 0; i < 3; i++) {
         //check if deck is empty 
@@ -26,6 +26,10 @@ void KrakenCard::play(Game& game, Player& player) {
             std::cout << "BUST! " << player.getName() << " loses all cards in play area\n"; 
             player.discardPlayArea(game); 
             return; //turn is over
+        }
+        //Internal bust from card ability 
+        if (player.getPlayArea().empty()) {
+            return; 
         }
 
     }
