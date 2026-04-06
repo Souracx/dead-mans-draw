@@ -111,7 +111,7 @@ void Game::startGame() {
         playTurn(); 
         _turn++; 
     }
-   
+    endGame(); 
 }
 
 // Controls a single player's turn
@@ -150,8 +150,11 @@ void Game::playTurn() {
 
             // ask player if they want to draw again
             std::string input;
-            std::cout << "Draw again? (y/n): ";
-            std::cin >> input;
+            //add input validation
+            do {
+                std::cout << "Draw again? (y/n): ";
+                std::cin >> input;
+            } while (input != "y" && input != "n"); 
 
             if (input != "y") {
                 // player banks their cards
@@ -174,7 +177,7 @@ void Game::printFinalScores() {
         std::cout << _players[i]->getName() << "'s Bank:\n";
         _players[i]->printBank();
     }
-    // determine winner
+    //winnner is determined
     int score0 = _players[0]->score();
     int score1 = _players[1]->score();
     if (score0 > score1)
