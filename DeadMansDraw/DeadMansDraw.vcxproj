@@ -190,6 +190,7 @@
     <ClCompile Include="SwordCard.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnchorCard.h" />
     <ClInclude Include="CannonCard.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="ChestCard.h" />
