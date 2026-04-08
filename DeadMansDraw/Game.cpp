@@ -12,6 +12,7 @@
 #include <iostream>
 #include <algorithm>
 #include <random>
+#include "AnchorCard.h"
 
 static const int MAX_TURNS = 20;
 
@@ -47,6 +48,8 @@ void Game::createDeck() {
         _deck.push_back(new OracleCard(i));
         _deck.push_back(new MapCard(i));
         _deck.push_back(new KrakenCard(i));
+        //bonus 
+        _deck.push_back(new AnchorCard(i)); 
     }
     //Mermaid card (value 4 - 9)
     for (int i = 4; i <= 9; i++) {

@@ -9,4 +9,5 @@ public:
     virtual std::string str() const override; 
 
     virtual void play(Game& game, Player& player) override; 
+
 };

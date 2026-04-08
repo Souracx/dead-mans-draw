@@ -176,6 +176,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnchorCard.cpp" />
     <ClCompile Include="CannonCard.cpp" />
     <ClCompile Include="ChestCard.cpp" />
     <ClCompile Include="DeadMansDraw.cpp" />
