@@ -110,7 +110,7 @@ void Game::startGame() {
     while (_turn <= MAX_TURNS && !_deck.empty()) {
         //calculate current round
         _round = (_turn + 1) / 2; 
-        std::cout << "--- Round " << _round << ", Turn " << _turn << "---\n"; 
+        std::cout << "--- Round " << _round << ", Turn " << _turn << " ---\n"; 
         playTurn(); 
         _turn++; 
     }
